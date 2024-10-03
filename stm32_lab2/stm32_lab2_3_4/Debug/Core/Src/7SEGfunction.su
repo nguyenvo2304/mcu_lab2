@@ -1,0 +1,3 @@
+../Core/Src/7SEGfunction.c:9:6:display7SEG	32	static
+../Core/Src/7SEGfunction.c:27:6:setEnable	24	static
+../Core/Src/7SEGfunction.c:31:6:update7SEG	16	static
