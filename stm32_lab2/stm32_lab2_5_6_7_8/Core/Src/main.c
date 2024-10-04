@@ -100,66 +100,67 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   	  	  	  	  	  	  	  	  // EX 5
-  while (1)
-  {
-    /* USER CODE END WHILE */
-	  second++;
-		if (second >= 60) {
-			second = 0;
-			minute++;
-		}
-		if (minute >= 60) {
-			minute = 0;
-			hour++;
-		}
-		if (hour >= 24) {
-			hour = 0;
-		}
-
-		updateClockBuffer();
-		HAL_Delay(1000);
-    /* USER CODE BEGIN 3 */
-  }
+//  while (1)
+//  {
+//    /* USER CODE END WHILE */
+//	  second++;
+//		if (second >= 60) {
+//			second = 0;
+//			minute++;
+//		}
+//		if (minute >= 60) {
+//			minute = 0;
+//			hour++;
+//		}
+//		if (hour >= 24) {
+//			hour = 0;
+//		}
+//
+//		updateClockBuffer();
+//		HAL_Delay(1000);
+//    /* USER CODE BEGIN 3 */
+//  }
   	  	  	  	  	  	  	  	  // EX 6
 //  setTime0(1000);
 //  while (1) {
 //  		updateClockBufferEx6();
 //  		if (time0flag == 1) {
 //  			HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-//  			setTime0(1000);
+//  			setTime0(2000);
 //  		}
 //  	}
 
 								// EX 7 -8
-//	setTime0(500);
-//	while (1) {
-//		if (time0flag == 1) {
-//			setTime0(1000);
-//			half_sec++;
-//			if (half_sec == 2) {
-//				second++;
-//				if (second >= 60) {
-//					second = 0;
-//					minute++;
-//				}
-//				if (minute >= 60) {
-//					minute = 0;
-//					hour++;
-//				}
-//				if (hour >= 24) {
-//					hour = 0;
-//				}
-//				updateClockBufferEx6();
-//				HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
-//				HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-//
-//				half_sec = 0;
-//			}
-//			update7SEG(index_led++);
-//		}
-//		if (index_led > 3) index_led = 0;
-//	}
-//}
+	setTime0(1000);
+	setTime1(250);
+	while (1) {
+		if(time1flag ==1){
+			second++;
+				if (second >= 60) {
+					second = 0;
+					minute++;
+				}
+				if (minute >= 60) {
+					minute = 0;
+					hour++;
+				}
+				if (hour >= 24) {
+					hour = 0;
+				}
+			HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+			setTime1(1000);
+
+		}
+		if (time0flag == 1) {
+				updateClockBufferEx6();
+				update7SEG(index_led++);
+				setTime0(250);
+
+			}
+		if (index_led > 3) index_led = 0;
+	}
+}
 
 /**
   * @brief System Clock Configuration
@@ -296,6 +297,8 @@ static void MX_GPIO_Init(void)
 //ex7
 //ex8
 void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim){
+	timeRun0();
+	timeRun1();
 }
 
 

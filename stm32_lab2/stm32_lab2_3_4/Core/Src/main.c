@@ -104,13 +104,13 @@ int main(void)
     /* USER CODE END WHILE */
 		//condition-flag checking
 		if(time1flag == 1){
-			setTimer1(100);
+			setTimer1(500);
 			//TODO
 			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 			HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
 		}
 		if(time2flag == 1){
-			setTimer2(50);
+			setTimer2(1000);
 			//TODO
 			update7SEG(index_led++);
 		}
@@ -246,94 +246,17 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-/* khai bao ham ngat timer*/
-//counter =100;
-//void HAL_TIM_PeriodElapsedCallback(TIM_HandledTypeDef *htime){
-//	if(counter>0){
-//		counter++;
-//		if(counter<=0){
-//			counter=100;
-//			HAL_GPIO_TogllePin()
-//		}
-//	}
-//}
-//int counter2 = 50;
-//int counter1 = 100;
-//int num = 1;
-//void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim){
-//	/*
-//	 * Trigger the led
-//	 */
-//	counter1--;
-//	if(counter1 <= 0){
-//		counter1 = 50;
-//		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-//	}
-//	/*
-//	 * Trigger the 7segment LED
-//	 */
-//	counter2--;
-//	if(counter2 <= 0){
-//		counter2 = 50;
-//		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
-//		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
-//		num = 3 - num;
-//	}
-//	display7SEG(num, GPIOB, 0);
-//}
-//
-//int counter2 = 200;
-//int counter1 = 100;
-//int num = 1;
-//void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim){
-//	/*
-//	 * Trigger the led
-//	 */
-//	counter1--;
-//	if(counter1 <= 0){
-//		counter1 = 100;
-//		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-//		HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
-//	}
-//	/*
-//	 * Trigger the 7segment LED
-//	 */
-//	if(counter2-- == 0){
-//		counter2 = 200;
-//	}
-//	if(counter2 == 200){
-//		num = 1;
-//		HAL_GPIO_TogglePin(EN3_GPIO_Port, EN3_Pin);
-//		HAL_GPIO_TogglePin(EN0_GPIO_Port, EN0_Pin);
-//	}
-//	if(counter2 == 150){
-//		num = 2;
-//		HAL_GPIO_TogglePin(EN0_GPIO_Port, EN0_Pin);
-//		HAL_GPIO_TogglePin(EN1_GPIO_Port, EN1_Pin);
-//	}
-//	if(counter2 == 100){
-//		num = 3;
-//		HAL_GPIO_TogglePin(EN1_GPIO_Port, EN1_Pin);
-//		HAL_GPIO_TogglePin(EN2_GPIO_Port, EN2_Pin);
-//	}
-//	if(counter2 == 50){
-//		num = 0;
-//		HAL_GPIO_TogglePin(EN2_GPIO_Port, EN2_Pin);
-//		HAL_GPIO_TogglePin(EN3_GPIO_Port, EN3_Pin);
-//	}
-//
-//	display7SEG(num, GPIOB, 0);
-//}
+
 
 //func
 //implement ex3
-void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim){
-	timeRun1();
-}
-//implement ex4
-//void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-//	timeRun2();
+//void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim){
+//	timeRun1();
 //}
+//implement ex4
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+	timeRun2();
+}
 
 
 /* USER CODE END 4 */

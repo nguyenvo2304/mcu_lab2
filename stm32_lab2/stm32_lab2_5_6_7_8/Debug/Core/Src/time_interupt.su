@@ -1,8 +1,6 @@
-../Core/Src/time_interupt.c:29:6:setTimer1	16	static
-../Core/Src/time_interupt.c:33:6:setTimer2	16	static
-../Core/Src/time_interupt.c:39:6:timeRun1	4	static
-../Core/Src/time_interupt.c:58:6:timeRun2	8	static
-../Core/Src/time_interupt.c:89:6:updateClockBuffer	8	static
-../Core/Src/time_interupt.c:105:6:updateClockBufferEx6	4	static
-../Core/Src/time_interupt.c:116:6:setTime0	16	static
-../Core/Src/time_interupt.c:120:6:timeRun0	4	static
+../Core/Src/time_interupt.c:27:6:updateClockBuffer	8	static
+../Core/Src/time_interupt.c:43:6:updateClockBufferEx6	4	static
+../Core/Src/time_interupt.c:56:6:setTime0	16	static
+../Core/Src/time_interupt.c:60:6:setTime1	16	static
+../Core/Src/time_interupt.c:64:6:timeRun0	4	static
+../Core/Src/time_interupt.c:72:6:timeRun1	4	static

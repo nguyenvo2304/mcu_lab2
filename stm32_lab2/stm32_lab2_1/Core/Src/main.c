@@ -248,42 +248,27 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-/* khai bao ham ngat timer*/
-//counter =100;
-//void HAL_TIM_PeriodElapsedCallback(TIM_HandledTypeDef *htime){
-//	if(counter>0){
-//		counter++;
-//		if(counter<=0){
-//			counter=100;
-//			HAL_GPIO_TogllePin()
-//		}
-//	}
-//}
+
 int counter2 = 50;
 int counter1 = 100;
 int num = 1;
 void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim){
-	/*
-	 * Trigger the led
-	 */
+
 	counter1--;
 	if(counter1 <= 0){
-		counter1 = 50;
+		counter1 = 100;
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-	}
-	/*
-	 * Trigger the 7segment LED
-	 */
+// 7SEG
 	counter2--;
 	if(counter2 <= 0){
 		counter2 = 50;
-		num= (num == 1)? 2 : 1;
 		if(num==1){
 			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
 		}
 		else if(num==2){
 			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
 		}
+			num = 3 - num;
 	}
 	display7SEG(num, GPIOB, 0);
 }

@@ -251,17 +251,9 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-/* khai bao ham ngat timer*/
-//counter =100;
-//void HAL_TIM_PeriodElapsedCallback(TIM_HandledTypeDef *htime){
-//	if(counter>0){
-//		counter++;
-//		if(counter<=0){
-//			counter=100;
-//			HAL_GPIO_TogllePin()
-//		}
-//	}
-//}
+
+
+//ex1
 //int counter2 = 50;
 //int counter1 = 100;
 //int num = 1;

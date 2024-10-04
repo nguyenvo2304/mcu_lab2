@@ -20,71 +20,9 @@
 const int MAX_LED = 4;
 int index_led = 0;
 int led_buffer[4] = {1, 2, 3, 4};
-int counter1 = 100;
-int counter2 = 50;
-int time1flag = 0;
-int time2flag = 0;
-
-
-void setTimer1(int dur){
-	counter1 = dur;
-	time1flag =0;
-}
-void setTimer2(int dur){
-	counter2 = dur;
-	time2flag =0;
-}
-
-//for ex3
-void timeRun1(){
-	if(counter1 > 0){
-		counter1--;
-	}
-	if(counter1 <=0){
-		counter1 = 100;
-		time1flag =1;
-	}
-	if(counter2 > 0){
-		counter2--;
-	}
-	if(counter2 <=0){
-		counter2 = 50;
-		time2flag =1;
-	}
-	if(index_led >3) index_led = 0;
-}
-
-//for ex4
-void timeRun2(){
-	if(counter1 > 0){
-		counter1--;
-	}
-	if(counter1 <=0){
-		counter1 = 100;
-		time1flag = 1;
-	}
-	if(counter2 > 0){
-		counter2--;
-	}
-	if(counter2 <=0){
-		counter2 = 50;
-		time2flag =1;
-	}
-	if (counter2 % 25 == 0)
-		update7SEG(index_led++);
-
-	if (counter2 <= 0)
-		counter2 = 100;
-
-	if (index_led > 3)
-		index_led = 0;
-
-}
-
 
 //implement ex5
-int hour = 15 , minute = 8 , second = 50;
-int half_sec = 0;
+int hour = 19 , minute = 9 , second = 50;
 //for ex5
 void updateClockBuffer() {
 		led_buffer[0] = hour / 10;
@@ -112,16 +50,30 @@ void updateClockBufferEx6(){
 //implement ex6
 int counter0 = 0;
 int time0flag = 0;
+int counter1 = 0;
+int time1flag = 0;
 int TIMECYCLE = 10;
 void setTime0(int dur){
 	counter0 = dur / TIMECYCLE ;
 	time0flag = 0;
+}
+void setTime1(int dur){
+	counter1 = dur / TIMECYCLE ;
+	time1flag = 0;
 }
 void timeRun0(){
 	if(counter0 >0){
 		counter0--;
 		if(counter0 ==0){
 			time0flag = 1;
+		}
+	}
+}
+void timeRun1(){
+	if(counter1 >0){
+		counter1--;
+		if(counter1 ==0){
+			time1flag = 1;
 		}
 	}
 }
